@@ -1,12 +1,12 @@
 #include <R.h>
 #include <Rmath.h>
 #include <math.h>
-#include <values.h>
+/*#include <values.h>
 /* this function calculates the joint distribution of a feature */
 /* here only calculate the part involved with theta */
 double urn1(double alpha, double theta,int I0,int O0,int I1,int O1)
 { if(theta==0){
-     if(I0!=0 || I1!=0) return -MAXDOUBLE;
+     if(I0!=0 || I1!=0) return -DBL_MAX;
      else return 
         lgammafn( alpha  + O0 ) +
         lgammafn( alpha  + O1 ) -
@@ -14,7 +14,7 @@ double urn1(double alpha, double theta,int I0,int O0,int I1,int O1)
   }
   
   if(theta==1){
-     if(O0!=0 || O1!=0) return -MAXDOUBLE;
+     if(O0!=0 || O1!=0) return -DBL_MAX;
      else return
         lgammafn( alpha  + I0 ) +
         lgammafn( alpha  + I1 ) -

@@ -16,6 +16,7 @@ corrected. \code{cv.bayes} is the short-cut function for cross-validation with
 \code{Predict.bayes}.  }
 
 \usage{
+
 Predict.bayes(test,train,is.binary.features=FALSE,k,
               subset.sel=1:nrow(train),
               theta0=0,no.theta=20,
@@ -27,6 +28,7 @@ cv.bayes(data,is.binary.features=FALSE,no.folds=10,k,
           alpha.shape=0.5,alpha.rate=5,no.alpha=5,
           correct=TRUE,no.theta.adj=20) 
 }
+
 \arguments{
 
 \item{test}{the test data, a matrix, i.e. the data for which we want to predict
@@ -98,6 +100,7 @@ distribution of  "alpha"}
 			     the 4th being the posterior probabilities}
 
 \item{features.selected}{The features selected using correlation criterion}
+
 }
 
 \seealso{\code{\link{gendata.bayes}}}
@@ -118,8 +121,17 @@ cv.dtr.cor <- cv.bayes(d$train,TRUE,5,10,0,20,0.5,5,20,TRUE,40)
 
 }
 
-\references{ L.Li, J.Zhang, and R.M.Neal (2006) A Method for Avoiding Bias from
-Feature Selection With Application to Naive Bayes Classification Models, Technical
-Report 0705, Department of Statistics, University of Toronto}
+\references{ 
+
+	    \item{}{L.Li, J.Zhang, and R.M.Neal (2007), A Method for Avoiding Bias
+	    from Feature Selection With Application to Naive Bayes Classification
+	    Models, Technical Report 0705, Department of Statistics, University of
+	    Toronto}
+
+	    \item{}{Li, L. (2007), Bayesian Classification and Regression with High
+	    Dimensional Features, PhD thesis, University of Toronto, available from
+	    http://math.usask.ca/~longhai.}
+
+}
 
 \keyword{classif}

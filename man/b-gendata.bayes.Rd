@@ -25,6 +25,6 @@ first column being the response}
 }
 
 \seealso{
-\code{\link{Predict.bayes}}
+\code{\link{predict_bayes}}
 }
 \keyword{datagen}

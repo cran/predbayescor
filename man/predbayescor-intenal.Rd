@@ -9,12 +9,13 @@
 \alias{ real2bin}
 \alias{ selfth.abscor}
 
+
 \title{Internal Functions}
 
 \description{Internal Functions. Type function name directly to see the definition of this function.}
 
 \seealso{
-\code{\link{Predict.bayes}}
+\code{\link{predict_bayes}}
 }
 
 \keyword{internal}

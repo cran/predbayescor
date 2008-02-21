@@ -1,26 +1,26 @@
-\name{Predict.bayes}
+\name{predict_bayes}
 
-\alias{Predict.bayes}
-
-\alias{cv.bayes}
+\alias{predict_bayes}
 
 \alias{begin.predbayescor}
 
-\title{Classification rule based on Bayesian 
+\alias{cv.bayes}
+
+\title{Classification rule based on Bayesian
        naive Bayes models with feature selection bias corrected
 }
 
-\description{\code{Predict.bayes} predicts the binary response based on high
+\description{\code{predict_bayes} predicts the binary response based on high
 dimemsional binary features modeled by Bayesian naive Bayes models. It also
 accepts real values but they will be converted into  binary by thresholding at
 the medians estimated from the data. A smaller number of features can be
 selected based on the correlations with the response. The bias due to the
 selection procedure can be corrected. \code{cv.bayes} is the short-cut function
-for cross-validation with \code{Predict.bayes}.  }
+for cross-validation with \code{predict_bayes}.  }
 
 \usage{
 
-Predict.bayes(
+predict_bayes(
 	      test,train,is.binary.features=FALSE,k,
               subset.sel=1:nrow(train),
               theta0=0,no.theta=20,
@@ -31,7 +31,7 @@ cv.bayes(
 	  data,is.binary.features=FALSE,no.folds=10,k,
           theta0=0,no.theta=20,
           alpha.shape=0.5,alpha.rate=5,no.alpha=5,
-          correct=TRUE,no.theta.adj=20) 
+          correct=TRUE,no.theta.adj=20)
 }
 
 \arguments{
@@ -61,28 +61,28 @@ cv.bayes(
 		2*(no.theta)+1 points. }
 
 \item{alpha.shape}{the shape parameter of the inverse Gamma, which is the prior
-		   distribution of  "alpha"} 
+		   distribution of  "alpha"}
 
 \item{alpha.rate}{the rate parameter of the inverse Gamma, as above}
 
 \item{no.alpha}{the number of "alpha"'s used in mid-point rule, which is used to
-		approximate the integral with respect to "alpha".} 
-		
+		approximate the integral with respect to "alpha".}
+
 \item{correct}{the indicator whether the correction method shall be applied}
 
 \item{no.theta.adj}{a parameter of Simpson's rule, which is used to evaluate
-		    the  integration with respect to "theta" in calculating the 
-		    adjustment factor} 
+		    the integration with respect to "theta" in calculating the
+		    adjustment factor}
 
 }
 
 \value{
 
-\item{prediction}{ a matrix showing the detailed prediction result: 
-                   the 1st column being the true responses, 
-		   the 2nd being the predicted responses, 
-		   the 3rd being the predictive probabilities of class 1 
-		   and the 4th being the indicator whether wrong prediction 
+\item{prediction}{ a matrix showing the detailed prediction result:
+                   the 1st column being the true responses,
+		   the 2nd being the predicted responses,
+		   the 3rd being the predictive probabilities of class 1
+		   and the 4th being the indicator whether wrong prediction
 		   is made.}
 
 \item{aml}{ the average minus log probabilities }
@@ -91,17 +91,17 @@ cv.bayes(
 
 \item{mse}{ the average square error of the predictive probabilities }
 
-\item{summary.pred}{ tabular display of the predictive probabilities 
+\item{summary.pred}{ tabular display of the predictive probabilities
                      and the actual fraction of class 1. }
 
-\item{alpha.prior.adj.post}{ a matrix showing the detailed information 
-                             about the "alpha"'s, 
-			     the 1st column being the values of "alpha"'s, 
-			     the 2nd being the adjustment factor, i.e. 
-			     probability that feature is discarded by 
-			     the cutoff used in the feature selection, 
-			     the 3rd being the log of the 2nd column times 
-			     the numbers of discarded features, 
+\item{alpha.prior.adj.post}{ a matrix showing the detailed information
+                             about the "alpha"'s,
+			     the 1st column being the values of "alpha"'s,
+			     the 2nd being the adjustment factor, i.e.
+			     probability that feature is discarded by
+			     the cutoff used in the feature selection,
+			     the 3rd being the log of the 2nd column times
+			     the numbers of discarded features,
 			     the 4th being the posterior probabilities}
 
 \item{features.selected}{The features selected using correlation criterion}
@@ -112,14 +112,14 @@ cv.bayes(
 
 \examples{
 
-#generate a dataset 
+#generate a dataset
 d <- gendata.bayes(100,100,500,500,1000,400)
 
 #do prediction with correction applied
-pred.d.cor <- Predict.bayes(d$test,d$train,TRUE,10,,0,20,0.5,5,20,TRUE,40)
+pred.d.cor <- predict_bayes(d$test,d$train,TRUE,10,,0,20,0.5,5,20,TRUE,40)
 
 #do prediction without correction applied
-pred.d.uncor <- Predict.bayes(d$test,d$train,TRUE,10,,0,20,0.5,5,20,FALSE,40)
+pred.d.uncor <- predict_bayes(d$test,d$train,TRUE,10,,0,20,0.5,5,20,FALSE,40)
 
 #do 5-fold cross-validation on the training data with correction applied
 cv.dtr.cor <- cv.bayes(d$train,TRUE,5,10,0,20,0.5,5,20,TRUE,40)
@@ -128,7 +128,7 @@ cv.dtr.cor <- cv.bayes(d$train,TRUE,5,10,0,20,0.5,5,20,TRUE,40)
 
 \references{
 
-http://math.usask.ca/~longhai/publication.html}
+\url{http://math.usask.ca/~longhai/doc/naivebayes/naivebayes.abstract.html}
 
 }
 

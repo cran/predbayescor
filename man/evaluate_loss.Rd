@@ -4,12 +4,12 @@
 
 \title{calculating the total loss of prediction results}
 
-\description{Calculates the average loss of the predictive probabilities by assuming the ratio of the loss of assigning 0 to 1 to the loss of assigning 1 to 0 is \code{ratio.loss}. Note that the prediction threshold is no longer 0.5. "1" will be assigned if the predictive probability is greater than \code{1/(1+ratio.loss)}.
+\description{Calculates the average loss of predictions based on threshold with \code{threshold}. Note that this threshold has 1-1 mapping with the ratio of the loss of assigning 0 to 1 to the loss of assigning 1 to 0: threshold=1-1/(1+ratio). 
 }
 
 
 \usage{
-evaluate_by_loss ( y.true, pred.prob, ratio.loss=10)
+evaluate_by_loss ( y.true, pred.prob, threshold=0.5)
 }
 
 \arguments{
@@ -18,15 +18,13 @@ evaluate_by_loss ( y.true, pred.prob, ratio.loss=10)
 
 \item{pred.prob}{a vector containing the predictive probabilities.}
 
-\item{ratio.loss}{ratio of loss1to0 to loss0to1.}
+\item{threshold}{When predictive probability is greater than \code{threshold}, the response is predicted as 1.}
 
 }
 
 \value{
 
-\item{loss}{the average loss.}
-
-\item{sd}{the standard deviation of the average loss.}
+\item{loss}{the average loss, with attrib "sd" storing the estimate of the standard error of this loss.}
 
 }
 

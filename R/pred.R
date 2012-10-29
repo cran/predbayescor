@@ -109,7 +109,7 @@ predict_bayes <- function(test,train,is.binary.features=FALSE,k,
     # calculate mean square error
     mse <- mean((prob.pred-test[,1])^2)
     #output
-    list(aml=aml,error.rate=error.rate,mse=mse,
+    list(amlp=aml,error.rate=error.rate,mse=mse,
          summary.pred=summary.pred,
          prediction=cbind(true=test[,1],pred=states.pred,
 	                  prob.pred=prob.pred,wrong),

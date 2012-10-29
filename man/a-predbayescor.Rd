@@ -85,7 +85,7 @@ cv.bayes(
 		   and the 4th being the indicator whether wrong prediction
 		   is made.}
 
-\item{aml}{ the average minus log probabilities }
+\item{amlp}{ the average minus log probabilities }
 
 \item{error.rate}{ the ratio of wrong prediction }
 

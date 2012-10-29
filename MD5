@@ -1,0 +1,13 @@
+2f3d8b674e6330340c749d1cf9652142 *DESCRIPTION
+9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
+cc7d7cf46391e93f8895863086af2ddd *R/cv.r
+ec3ef1c2b62176b73032d78c7cb8ab32 *R/evaluate.r
+e6da8e3c470c42d14809fbe99c8f97fe *R/firstlib.r
+937a978006d78ac6bbb811f9ee66f1cf *R/gendata.r
+626256181325c57e32095e96cc5b05ad *R/pred.r
+2e3d74a6ee81ec3162a5077c7c0d02a2 *R/present.r
+238c8e3be08bcb4d1772e2c423d4c955 *man/a-predbayescor.Rd
+e657f5f6bbb5a4b5565ae9cc4ba71414 *man/b-gendata.bayes.Rd
+d4a8a4b3f3475bc5037b52130e90564e *man/evaluate_loss.Rd
+29544d3b77e3ed9cc797b43482f0087b *man/predbayescor-intenal.Rd
+801d51747b610d7acacbed3ecbcf1c79 *src/pred.c
